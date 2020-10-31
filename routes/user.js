@@ -3,15 +3,16 @@ const router = express.Router();
 const uid2 = require("uid2");
 const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
+require("dotenv").config();
 
 // importation de cloudinary
 const cloudinary = require("cloudinary").v2;
 
 //connexion au serveur cloudinary
 cloudinary.config({
-  cloud_name: "djnqlxx1a",
-  api_key: "138995529323627",
-  api_secret: "kcW5tYS7FGT5OtfcXY3tLq8-RY0",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_KEY_SECRET,
 });
 
 const User = require("../models/User");
